@@ -391,14 +391,14 @@
 
 /* MY CODE */
 .mkDiv {
-    width: 70%;
+    width: 80%;
     height: auto;
     padding-left: 5px;
 }
 
 .mkTable {
-    /*     background: url("image/textures/wood_pattern_dark_color.png"); */
-    width: 80%;
+    background: url("image/textures/pinstriped_suit_vertical.png");
+    width: 85%;
     height: max-content;
     margin-right: auto;
     margin-left: auto;
@@ -409,7 +409,8 @@
 
 .mkCase {
     background: url("image/matrix4k.gif");
-    padding: 10px;
+    padding-bottom: 5px;
+    padding-bottom: 5px;
     font-size: 0.7rem;
 }
 
@@ -417,5 +418,5 @@ footer {
     background-color: rgba(0, 0, 0, 0.432);
     padding: 1px;
     font-size: 6px;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
