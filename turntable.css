@@ -409,14 +409,25 @@
 
 .mkCase {
     background: url("image/matrix4k.gif");
-    padding-bottom: 5px;
-    padding-bottom: 5px;
-    font-size: 0.7rem;
+    padding-bottom: 15px;
+    padding-top: 1vh;
+    font-size: 1rem;
 }
 
-footer {
-    background-color: rgba(0, 0, 0, 0.432);
+#footer {
     padding: 1px;
-    font-size: 6px;
+    font-size: 0.8rem;
     margin-top: 2vh;
+}
+
+.img1 {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+}
+
+.news {
+    display: flex;
+    justify-content: center;
+    padding-top: 5vh;
 }
