@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>SoundManager 2: Turntable UI</title>
+  <title>AudioKoppler MK2 Vinyl-Player</title>
   <script type="text/javascript" src="soundmanager2.js"></script>
   <script src="turntable.js"></script>
   <script src="turntable-app.js"></script>
@@ -19,11 +19,11 @@
       font-size: 1rem;
       font-weight: lighter;
       color: #fff;
-      background: #393939;
+      background: url("image/textures/wood_pattern_dark_color.png");
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
       /* general font niceness? */
-      font-smoothing: antialiased;
+      /*       font-smoothing: antialiased; */
       text-rendering: optimizeLegibility;
       color: #ccc;
     }
@@ -123,63 +123,79 @@
       outline: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
+  <div class="mkTable">
+    <div class="mkDiv">
 
-  <div style="position:relative">
+      <div style="position:relative">
 
-    <!-- start turntable: centered and scales up to a predetermined max-width (based on image size) -->
+        <!-- start turntable: centered and scales up to a predetermined max-width (based on image size) -->
 
-    <div style="position:relative;text-align:center">
+        <div style="position:relative;text-align:center">
 
-      <!-- note: inline-block is just for centering -->
+          <!-- note: inline-block is just for centering -->
 
-      <div id="turntable-large" class="turntable has-slipmat" style="display:inline-block">
+          <div id="turntable-large" class="turntable has-slipmat" style="display:inline-block">
 
-        <div class="frame"></div>
+            <div class="frame"></div>
 
-        <div class="table-bg"></div>
+            <div class="table-bg"></div>
 
-        <!-- image that sets the base dimensions-->
-        <img src="image/tt_case_and_lighting.png" alt="" class="stub" />
+            <!-- image that sets the base dimensions-->
+            <img src="image/tt_case_and_lighting.png" alt="" class="stub" />
 
-        <div class="bd">
+            <div class="bd">
 
-          <div class="platter"></div>
+              <div class="platter"></div>
 
-          <div class="slipmat-holder">
-            <div class="slipmat"></div>
+              <div class="slipmat-holder">
+                <div class="slipmat"></div>
+              </div>
+
+              <div class="record-holder">
+                <div class="record"></div>
+                <div class="record-grooves"></div>
+                <div class="label"></div>
+              </div>
+
+              <div class="spindle"></div>
+              <div class="power-light"></div>
+              <a href="#" class="power-dial" data-method="powerToggle"></a>
+              <a href="#" class="button start-stop" data-method="toggle"></a>
+              <a href="#" class="button speed-33 on"></a>
+              <a href="#" class="button speed-45"></a>
+              <div class="light light-on"></div>
+              <a href="#" class="button light"></a>
+              <div class="tonearm-holder">
+                <div class="tonearm"></div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="record-holder">
-            <div class="record"></div>
-            <div class="record-grooves"></div>
-            <div class="label"></div>
-          </div>
+        </div>
 
-          <div class="spindle"></div>
-          <div class="power-light"></div>
-          <a href="#" class="power-dial" data-method="powerToggle"></a>
-          <a href="#" class="button start-stop" data-method="toggle"></a>
-          <a href="#" class="button speed-33 on"></a>
-          <a href="#" class="button speed-45"></a>
-          <div class="light light-on"></div>
-          <a href="#" class="button light"></a>
-          <div class="tonearm-holder">
-            <div class="tonearm"></div>
-          </div>
+        <div>
+
+          <!-- end turntable -->
+
+
+        </div> <!-- End mkDiv -->
+        <div class="mkCase">
+
+
+          <p class="indent" style="margin-top:3%">Your Vinyl Case</p>
+
+          <ul>
+            <li><a href="deep_minimal-tracktest_preview.mp3" data-turntable="turntable-large"
+                data-artwork="image/vinyl.jpg"><b>AudioKoppler</b> - Deep-Minimal set 2018</a> (<span
+                title="Published under a Creative Commons BY AudioKoppler">a ThinkTechno Creation</span>- <a
+                href="#">supported by Tiefgang-Sound</a>)
+            </li>
+          </ul>
         </div>
 
       </div>
-
-    </div>
-
-    <div>
-
-      <!-- end turntable -->
-
-      <p class="indent" style="margin-top:-3%">Click to play a vinyl on the turntable.</p>
-
-      <ul>
-        <li><a href="deep_minimal-tracktest_preview.mp3" data-turntable="turntable-large"
-            data-artwork="image/vinyl.jpg"><b>AudioKoppler</b> - Deep-Minimal set 2018</a> (<span
-            title="Published under a Creative Commons BY AudioKoppler">BY-CC-ND license</span>, <a href="#"></a>)</li>
-      </ul>
+      <footer>
+        <p>Thanks for that AWESOME open-Source Script Support by <a href="http://">Sound Manager 2</a></p>
+      </footer>
+</body>
