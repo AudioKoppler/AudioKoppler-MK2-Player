@@ -1,6 +1,6 @@
 /* global soundManager, document, console, window */
 
-(function(window) {
+(function (window) {
 
   /** @license
    * SoundManager 2: "Turntable UI": Base and API
@@ -13,30 +13,31 @@
   'use strict';
 
   var turntables = [],
-      turntablesById = {},
-      // CSS selector for top-level DOM node
-      turntableSelector = '.turntable',
-      tt_prefix = 'tt_',
-      idCounter = 0,
-      utils;
+    turntablesById = {},
+    // CSS selector for top-level DOM node
+    turntableSelector = '.turntable',
+    tt_prefix = 'tt_',
+    idCounter = 0,
+    utils;
 
   /**
    * Slightly hackish: Turntable event callbacks.
    * Override globally by setting turntables.on = {}, or individually by turntables[0].on = {} etc.
    */
-  turntables.on = {/*
-    stop: function(tt) {
-      console.log('turntable stopped', tt);
-    },
-    start: function(tt) {
-      console.log('turntable started', tt);
-    },
-    powerOn: function(tt) {
-      console.log('turntable powerOn', tt);
-    },
-    powerOff: function(tt) {
-      console.log('turntable powerOff', tt);
-    }*/
+  turntables.on = {
+    /*
+        stop: function(tt) {
+          console.log('turntable stopped', tt);
+        },
+        start: function(tt) {
+          console.log('turntable started', tt);
+        },
+        powerOn: function(tt) {
+          console.log('turntable powerOn', tt);
+        },
+        powerOff: function(tt) {
+          console.log('turntable powerOff', tt);
+        }*/
   };
 
   function Turntable(o, options) {
@@ -118,7 +119,7 @@
 
     methods = {
 
-      start: function() {
+      start: function () {
         if (data.power.turntable && !data.power.motor) {
           data.power.motor = true;
           add(css.power.motor);
@@ -126,7 +127,7 @@
         }
       },
 
-      stop: function() {
+      stop: function () {
         if (data.power.motor) {
           data.power.motor = false;
           remove(css.power.motor);
@@ -134,7 +135,7 @@
         }
       },
 
-      toggle: function() {
+      toggle: function () {
         if (data.power.motor) {
           methods.stop();
         } else {
@@ -142,7 +143,7 @@
         }
       },
 
-      powerOn: function() {
+      powerOn: function () {
         if (!data.power.turntable) {
           data.power.turntable = true;
           add(css.power.turntable);
@@ -150,7 +151,7 @@
         }
       },
 
-      powerOff: function() {
+      powerOff: function () {
         if (data.power.turntable) {
           data.power.turntable = false;
           remove(css.power.turntable);
@@ -160,7 +161,7 @@
         methods.stop();
       },
 
-      powerToggle: function() {
+      powerToggle: function () {
         if (!data.power.turntable) {
           methods.powerOn();
         } else {
@@ -168,7 +169,7 @@
         }
       },
 
-      setTonearmAngle: function(angle) {
+      setTonearmAngle: function (angle) {
         if (!isNaN(angle)) {
           data.tonearm.angle = Math.max(data.tonearm.minAngle, Math.min(data.tonearm.maxAngle, angle));
           if (utils.features.transform.prop) {
@@ -181,31 +182,31 @@
         }
       },
 
-      addSlipmat: function() {
+      addSlipmat: function () {
         add(css.turntable.hasSlipmat);
       },
 
-      removeSlipmat: function() {
+      removeSlipmat: function () {
         remove(css.turntable.hasSlipmat);
       },
 
-      toggleSlipmat: function() {
+      toggleSlipmat: function () {
         utils.css.toggle(dom.o, css.turntable.hasSlipmat);
       },
 
-      addRecord: function() {
+      addRecord: function () {
         add(css.turntable.hasRecord);
       },
 
-      removeRecord: function() {
+      removeRecord: function () {
         remove(css.turntable.hasRecord);
       },
 
-      toggleRecord: function() {
+      toggleRecord: function () {
         utils.css.toggle(dom.o, css.turntable.hasRecord);
       },
 
-      setArtwork: function(url) {
+      setArtwork: function (url) {
         if (url) {
           dom.record.style.backgroundImage = 'url(' + url + ')';
           if (!data.record.hasArtwork) {
@@ -213,10 +214,10 @@
             data.record.hasArtwork = true;
           }
         } else if (data.record.hasArtwork) {
-            dom.record.style.backgroundImage = 'none';
-            remove(css.turntable.hasArtwork);
-            data.record.hasArtwork = false;
-          }
+          dom.record.style.backgroundImage = 'none';
+          remove(css.turntable.hasArtwork);
+          data.record.hasArtwork = false;
+        }
         if (options.hideLabelWithArtwork) {
           add(css.turntable.hideLabelWithArtwork);
         } else {
@@ -246,12 +247,12 @@
 
     function preventDefault(e) {
 
-        if (e.target && e.target.nodeName === 'A') {
-          utils.events.preventDefault(e);
-          return false;
-        }
+      if (e.target && e.target.nodeName === 'A') {
+        utils.events.preventDefault(e);
+        return false;
+      }
 
-        return true;
+      return true;
 
     }
 
@@ -311,13 +312,13 @@
 
   utils = {
 
-    array: (function() {
+    array: (function () {
 
       function compare(property) {
 
         var result;
 
-        return function(a, b) {
+        return function (a, b) {
 
           if (a[property] < b[property]) {
             result = -1;
@@ -355,7 +356,7 @@
 
     }()),
 
-    css: (function() {
+    css: (function () {
 
       function hasClass(o, cStr) {
 
@@ -397,7 +398,7 @@
       function toggleClass(o, cStr) {
 
         var found,
-            method;
+          method;
 
         found = hasClass(o, cStr);
 
@@ -420,13 +421,13 @@
 
     }()),
 
-    dom: (function() {
+    dom: (function () {
 
       function getAll(param1, param2) {
 
         var node,
-            selector,
-            results;
+          selector,
+          results;
 
         if (arguments.length === 1) {
 
@@ -454,7 +455,7 @@
 
       }
 
-      function get(/* parentNode, selector */) {
+      function get( /* parentNode, selector */ ) {
 
         var results = getAll.apply(this, arguments);
 
@@ -475,7 +476,7 @@
 
     }()),
 
-    position: (function() {
+    position: (function () {
 
       function getOffX(o) {
 
@@ -494,7 +495,7 @@
 
         } else if (o.x) {
 
-            curleft += o.x;
+          curleft += o.x;
 
         }
 
@@ -519,7 +520,7 @@
 
         } else if (o.y) {
 
-            curtop += o.y;
+          curtop += o.y;
 
         }
 
@@ -534,7 +535,7 @@
 
     }()),
 
-    style: (function() {
+    style: (function () {
 
       function get(node, styleProp) {
 
@@ -561,14 +562,14 @@
 
     }()),
 
-    events: (function() {
+    events: (function () {
 
       var add, remove, preventDefault;
 
-      add = function(o, evtName, evtHandler) {
+      add = function (o, evtName, evtHandler) {
         // return an object with a convenient detach method.
         var eventObject = {
-          detach: function() {
+          detach: function () {
             return remove(o, evtName, evtHandler);
           }
         };
@@ -580,13 +581,13 @@
         return eventObject;
       };
 
-      remove = (window.removeEventListener !== undefined ? function(o, evtName, evtHandler) {
+      remove = (window.removeEventListener !== undefined ? function (o, evtName, evtHandler) {
         return o.removeEventListener(evtName, evtHandler, false);
-      } : function(o, evtName, evtHandler) {
+      } : function (o, evtName, evtHandler) {
         return o.detachEvent('on' + evtName, evtHandler);
       });
 
-      preventDefault = function(e) {
+      preventDefault = function (e) {
         if (e.preventDefault) {
           e.preventDefault();
         } else {
@@ -604,17 +605,17 @@
 
     }()),
 
-    features: (function() {
+    features: (function () {
 
       var getAnimationFrame,
-          localAnimationFrame,
-          localFeatures,
-          prop,
-          styles,
-          testDiv,
-          transform;
+        localAnimationFrame,
+        localFeatures,
+        prop,
+        styles,
+        testDiv,
+        transform;
 
-        testDiv = document.createElement('div');
+      testDiv = document.createElement('div');
 
       /**
        * hat tip: paul irish
@@ -622,15 +623,15 @@
        * https://gist.github.com/838785
        */
 
-      localAnimationFrame = (window.requestAnimationFrame
-        || window.webkitRequestAnimationFrame
-        || window.mozRequestAnimationFrame
-        || window.oRequestAnimationFrame
-        || window.msRequestAnimationFrame
-        || null);
+      localAnimationFrame = (window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        null);
 
       // apply to window, avoid "illegal invocation" errors in Chrome
-      getAnimationFrame = localAnimationFrame ? function() {
+      getAnimationFrame = localAnimationFrame ? function () {
         return localAnimationFrame.apply(window, arguments);
       } : null;
 
@@ -675,7 +676,7 @@
 
         try {
           testDiv.style[transform] = style;
-        } catch(e) {
+        } catch (e) {
           // that *definitely* didn't work.
           return false;
         }
@@ -718,7 +719,7 @@
     flashVersion: 9
   });
 
-  soundManager.onready(function() {
+  soundManager.onready(function () {
 
     var nodes, i, j, tt;
 
@@ -741,3 +742,36 @@
   window.turntables.utils = utils;
 
 }(window));
+
+/* SEEKBAR */
+$('#multi').mdbRange({
+  width: '100%',
+  direction: 'vertical',
+  value: {
+    min: 0,
+    max: 100,
+  },
+  single: {
+    active: true,
+    value: {
+      step: 1,
+      symbol: ''
+    },
+    counting: false,
+    countingTarget: null,
+    bgThumbColor: '#4285F4',
+    textThumbColor: '#fff',
+    multi: {
+      active: true,
+      value: {
+        step: 1,
+        symbol: ''
+      },
+      counting: false,
+      rangeLength: 2,
+      countingTarget: null,
+      bgThumbColor: '#4285F4',
+      textThumbColor: '#fff'
+    },
+  }
+});

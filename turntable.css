@@ -5,6 +5,19 @@
  * Code provided under BSD license.
  * http://schillmania.com/projects/soundmanager2/license.txt
  */
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Righteous&display=swap');
+
+h1,
+h2,
+h3,
+p {
+    font-family: 'Righteous', cursive;
+}
+
+.indent {
+    margin-left: -100px;
+}
+
 
 .turntable {
     position: relative;
@@ -407,8 +420,19 @@
 
 }
 
+/* #myMargin {
+    filter: blur(2px);
+    transform: scale(0.9);
+}
+
+#myMargin:hover {
+    filter: blur(0);
+    transform: scale(1.2);
+} */
+
 .mkCase {
     background: url("image/matrix4k.gif");
+
     padding-bottom: 15px;
     padding-top: 1vh;
     font-size: 1rem;
@@ -423,11 +447,23 @@
 .img1 {
     width: 50%;
     height: auto;
-    padding: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+
 }
+
+/* .img1:hover {
+    transform: scale(1.2);
+    box-shadow: 5px 5px 5px black;
+} */
 
 .news {
     display: flex;
     justify-content: center;
-    padding-top: 5vh;
+    padding-top: 7vh;
+}
+
+.navbar {
+    font-family: 'Lacquer', sans-serif;
+    font-size: 5rem;
 }

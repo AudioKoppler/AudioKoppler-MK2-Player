@@ -10,6 +10,24 @@
   <!-- Bootsrtsap CDN for CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- FAVICON LINKS -->
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="icons//apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="icons//apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="icons//apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="icons//apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="icons//apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="icons//apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons//apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons//apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons//android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons//manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="icons//ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
 </head>
 
@@ -127,6 +145,16 @@
       outline: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark bg-dark justify-content-between border-dark rounded">
+    <a class="navbar-brand">I Like It Retro - The other MP3 Player</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+  <!-- NAVBAR END -->
   <div class="mkTable">
     <div class="mkDiv">
 
@@ -163,14 +191,16 @@
 
               <div class="spindle"></div>
               <div class="power-light"></div>
-              <a href="#" class="power-dial" data-method="powerToggle"></a>
-              <a href="#" class="button start-stop" data-method="toggle"></a>
+              <a href="#" class="power-dial" data-method="powerToggle" data-toggle="tooltip"
+                title="Turn Turntable On/Off!"></a>
+              <a href="#" class="button start-stop" data-method="toggle" data-toggle="tooltip"
+                title="Click to Start/Stop!"></a>
               <a href="#" class="button speed-33 on"></a>
               <a href="#" class="button speed-45"></a>
               <div class="light light-on"></div>
               <a href="#" class="button light"></a>
               <div class="tonearm-holder">
-                <div class="tonearm"></div>
+                <div class="tonearm" data-toggle="tooltip" title="That Tonearm is moving to track time!"></div>
               </div>
             </div>
 
@@ -181,7 +211,11 @@
         <div>
 
           <!-- end turntable -->
-
+          <!--           <div class="seeker">
+            <form class="multi-range-field my-5 pb-5">
+              <input id="multi" class="multi-range" type="range" />
+            </form>
+          </div> -->
 
         </div> <!-- End mkDiv -->
 
@@ -193,26 +227,32 @@
 
 
           <h2 class="indent" style="margin-top:3%"><strong>Your Vinyl Case</strong></h2>
-
           <ul>
             <li><a href="deep_minimal-tracktest_preview.mp3" data-turntable="turntable-large"
-                data-artwork="image/vinyl.jpg"><b>AudioKoppler</b> - Deep-Minimal set 2018</a> (<span
-                title="Published under a Creative Commons BY AudioKoppler">a ThinkTechno Creation</span>- <a
-                href="#">supported by Tiefgang-Sound</a>)
+                data-artwork="image/vinyl.jpg"><b>AudioKoppler</b> - Deep Minimal Set 2018</a>
+              (<span title="Copyright ">Copyright</span>- <a href="#">Think Techno/ Tiefgang Sound</a>)
+            </li>
+          </ul>
+          <ul>
+            <li><a href="Energy_52-Cafe_Del_Mar_ Michael_Woods_Remix.mp3" data-turntable="turntable-large"
+                data-artwork="image/Energy52_vinyl.jpg"><b>Energy 52</b> - Café del Mar[M. Woods Remix]</a>
+              (<span title="Copyright ">Copyright</span>- <a href="#">Energy 52</a>)
             </li>
           </ul>
         </div>
+        <br><br>
+        <div class="container mt-3">
+          <div id="myMargin" class="col-8 mx-auto mt-3 pt-2 border rounded shadow bg-dark">
+            <h1>This NEW Player Texture will be updated soon...</h1>
+            <p>aswell the complete layout and new SETS!</p>
+            <img class="img1 col-12 center" src="image/tt_table_HiQuality.jpg" alt="">
+          </div>
 
 
-        <div class="col-8 mx-auto mt-3 pt-2 border rounded shadow">
-          <h1>This NEW Player Texture will be updated soon...</h1>
-          <p>aswell the complete layout and new SETS!</p>
-          <img class="img1 col-12 center" src="image/tt_table_HiQuality.jpg" alt="">
-
-        </div>
-        <div id="footer" class="news col-8 mx-auto">
-          <p>Thanks for that AWESOME open-Source Script Support by <a
-              href="http://www.schillmania.com/projects/soundmanager2/" target="_blank">Sound Manager 2</a></p>
+          <div id="footer" class="news col-8 mx-auto">
+            <p>Thanks for that AWESOME open-Source Script Support by <a
+                href="http://www.schillmania.com/projects/soundmanager2/" target="_blank">Sound Manager 2</a></p>
+          </div>
         </div>
       </div>
 
