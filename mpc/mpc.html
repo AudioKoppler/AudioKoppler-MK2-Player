@@ -1,63 +1,139 @@
-          <!-- MPC DRUMMASCHINE -->
-          <div id="mpc">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-              <div id="wrapper">
+<head>
+    <title>SoundManager 2: A Javascript Sound API - MPC Demo</title>
+    <meta name="description"
+        content="An example drum machine (MPC) demo using the SoundManager 2 JavaScript Audio API" />
+    <meta name="keywords"
+        content="javascript mpc, javascript drum machine, javascript sound, javascript audio, DHTML sound, work by Scott Schiller, schillmania, javascript to flash communication" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" href="mpc.css" media="screen" />
+    <!-- soundManager.useFlashBlock: related CSS -->
+    <link rel="stylesheet" type="text/css" href="flashblock.css" />
+    <script type="text/javascript" src="soundmanager2.js"></script>
+    <script type="text/javascript" src="mpc.js"></script>
+    <!-- Bootsrtsap CDN for CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- FAVICON LINKS -->
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons//apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons//apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons//apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons//apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons//apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons//apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons//apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="icons//manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icons//ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
 
-                  <ul>
-                      <li id="btn-s0" onmousedown="soundManager.play('s0')">1<div></div>
-                      </li>
-                      <li id="btn-s1" onmousedown="soundManager.play('s1')">2<div></div>
-                      </li>
-                      <li id="btn-s2" onmousedown="soundManager.play('s2')">3<div></div>
-                      </li>
-                      <li id="btn-s3" onmousedown="soundManager.play('s3')">4<div></div>
-                      </li>
-                  </ul>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark bg-dark justify-content-between border-dark rounded shadow">
+        <a class="navbar-brand">I Like It Retro - The other MP3 Player</a>
+        <form class="form-inline border border-dark rounded shadow">
+            <a href="../index.html" active>Vinyl Player</a>
+            <a href="mpc.html">Machine [test]</a>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <!-- NAVBAR END -->
+    <div id="background"></div>
 
-                  <ul>
-                      <li id="btn-s4" onmousedown="soundManager.play('s4')">q<div></div>
-                      </li>
-                      <li id="btn-s5" onmousedown="soundManager.play('s5')">w<div></div>
-                      </li>
-                      <li id="btn-s6" onmousedown="soundManager.play('s6')">e<div></div>
-                      </li>
-                      <li id="btn-s7" onmousedown="soundManager.play('s7')">r<div></div>
-                      </li>
-                  </ul>
+    <div id="site" hidden>
 
-                  <ul>
-                      <li id="btn-s8" onmousedown="soundManager.play('s8')">a<div></div>
-                      </li>
-                      <li id="btn-s9" onmousedown="soundManager.play('s9')">s<div></div>
-                      </li>
-                      <li id="btn-s10" onmousedown="soundManager.play('s10')">d<div></div>
-                      </li>
-                      <li id="btn-s11" onmousedown="soundManager.play('s11')">f<div></div>
-                      </li>
-                  </ul>
+        <h1 style="margin-bottom:0px"><a href="../" style="color:#99ccff;text-decoration:none">SoundManager 2</a>:
+            Javascript Drum Machine Demo<span id="isHTML5"></span></h1>
+        <h2 style="margin-top:0px;color:#999">Trigger the pads to play different sounds.</h2>
+        <p id="mpc-debug" class="note">View <a href="#debug=1"
+                onclick="window.location.hash='debug=1';window.location.reload()">with debug output</a></p>
+        <p class="note">Photo: <a href="http://www.flickr.com/photos/schill/191496680/">MPC 2500</a> by .schill on
+            Flickr</a></p>
+        <p class="note"><span style="display:none">(If supported): </span><span id="isHTML5">Your browser is cool and is
+                using 100% HTML5 Audio. Look ma, no Flash!</span></p>
+    </div>
 
-                  <ul>
-                      <li id="btn-s12" onmousedown="soundManager.play('s12')">z<div></div>
-                      </li>
-                      <li id="btn-s13" onmousedown="soundManager.play('s13')">x<div></div>
-                      </li>
-                      <li id="btn-s14" onmousedown="soundManager.play('s14')">c<div></div>
-                      </li>
-                      <li id="btn-s15" onmousedown="soundManager.play('s15')">v<div></div>
-                      </li>
-                  </ul>
+    <div id="mpc">
 
-                  <div class="clear"></div>
+        <div id="wrapper">
 
-              </div>
+            <ul>
+                <li id="btn-s0" onmousedown="soundManager.play('s0')">1<div></div>
+                </li>
+                <li id="btn-s1" onmousedown="soundManager.play('s1')">2<div></div>
+                </li>
+                <li id="btn-s2" onmousedown="soundManager.play('s2')">3<div></div>
+                </li>
+                <li id="btn-s3" onmousedown="soundManager.play('s3')">4<div></div>
+                </li>
+            </ul>
 
-          </div>
+            <ul>
+                <li id="btn-s4" onmousedown="soundManager.play('s4')">q<div></div>
+                </li>
+                <li id="btn-s5" onmousedown="soundManager.play('s5')">w<div></div>
+                </li>
+                <li id="btn-s6" onmousedown="soundManager.play('s6')">e<div></div>
+                </li>
+                <li id="btn-s7" onmousedown="soundManager.play('s7')">r<div></div>
+                </li>
+            </ul>
 
-          <script type="text/javascript">
-              if (window.location.href.toString().match(/debug/i)) {
-                  document.getElementById('mpc-debug').style.display = 'none';
-              }
-          </script>
+            <ul>
+                <li id="btn-s8" onmousedown="soundManager.play('s8')">a<div></div>
+                </li>
+                <li id="btn-s9" onmousedown="soundManager.play('s9')">s<div></div>
+                </li>
+                <li id="btn-s10" onmousedown="soundManager.play('s10')">d<div></div>
+                </li>
+                <li id="btn-s11" onmousedown="soundManager.play('s11')">f<div></div>
+                </li>
+            </ul>
 
-          </div>
-          <!-- MPC DRUMMASCHINE END -->
+            <ul>
+                <li id="btn-s12" onmousedown="soundManager.play('s12')">z<div></div>
+                </li>
+                <li id="btn-s13" onmousedown="soundManager.play('s13')">x<div></div>
+                </li>
+                <li id="btn-s14" onmousedown="soundManager.play('s14')">c<div></div>
+                </li>
+                <li id="btn-s15" onmousedown="soundManager.play('s15')">v<div></div>
+                </li>
+            </ul>
+
+            <div class="clear"></div>
+
+        </div>
+        <footer class="footer">
+            <div class="col-8 mx-auto mt-3 border">
+                choose present
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        if (window.location.href.toString().match(/debug/i)) {
+            document.getElementById('mpc-debug').style.display = 'none';
+        }
+    </script>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
